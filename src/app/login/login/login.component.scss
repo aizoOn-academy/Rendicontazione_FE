@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10vh;
+}
+
+mat-card {
+  width: 40%;
+  margin: auto;
+  background-color:#F5F5F5;
+}
+
+mat-card-actions, mat-form-field {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 80%;
+}
+
+.stocazzo {
+  width: 80%;
+}
+
+div {
+  width: 100%;
+}
