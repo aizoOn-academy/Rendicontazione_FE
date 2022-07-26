@@ -10,10 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [LoginComponent],
   imports: [
+    HttpClientModule,
     CommonModule,
     RouterModule,
     MatCardModule,
@@ -24,7 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
+  providers: [
+    AuthService
+  ]
 })
-export class LoginModule {}
+export class AuthenticationModule {}
