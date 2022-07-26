@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BandoTableComponent } from './core/bando-table/bando-table.component';
 import { DomandaTableComponent } from './core/domanda-table/domanda-table.component';
 import { HomeComponent } from './core/home/home.component';
-import { LoginComponent } from './login/login/login.component';
+import { LoginComponent } from './authentication/login/login.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
