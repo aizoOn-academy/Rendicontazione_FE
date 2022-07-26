@@ -12,11 +12,17 @@
           <mat-icon>menu</mat-icon>
         </button>
 
-        <span>ACS Starter</span>
+        <span *ngIf="router.url === '/home/bando'">
+          BANDI
+        </span>
+        <span *ngIf="router.url === '/home/domanda'">
+          DOMANDE ATTIVE
+        </span>
 
         <!-- <div *ngIf="!auth.isLoggedIn"> -->
-        <button mat-icon-button aria-label="User login page" routerLink="/login">
-          login
+        <button mat-raised-button color="basic" routerLink="/login">
+          LOGIN
+          <mat-icon matSuffix style="margin-left: 0.5vw">person</mat-icon>
         </button>
 
         <!--

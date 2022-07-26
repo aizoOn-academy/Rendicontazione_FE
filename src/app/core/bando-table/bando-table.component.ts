@@ -12,4 +12,8 @@ export class BandoTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  metodo() {
+    console.log("Works!!!");
+  }
+
 }

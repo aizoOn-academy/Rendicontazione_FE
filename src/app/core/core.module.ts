@@ -9,6 +9,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    MatButtonModule,
+    MatCardModule,
   ],
 })
 export class CoreModule {}
