@@ -1,0 +1,19 @@
+.acs-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.acs-content {
+  height: 100%;
+}
+
+.acs-sidenav {
+  width: 340px;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+

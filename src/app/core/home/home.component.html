@@ -1,0 +1,51 @@
+<div class="acs-container">
+  <mat-drawer-container class="acs-content">
+    <!-- Sidenav -->
+    <mat-drawer #sidenav mode="side" opened="false" class="acs-sidenav">
+      <app-sidebar></app-sidebar>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <!-- Toolbar -->
+      <mat-toolbar color="primary">
+        <button mat-icon-button aria-label="Sidenav Menu toggle icon" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <span>ACS Starter</span>
+
+        <!-- <div *ngIf="!auth.isLoggedIn"> -->
+        <button mat-icon-button aria-label="User login page" routerLink="/login">
+          login
+        </button>
+
+        <!--
+        <div *ngIf="auth.isLoggedIn">
+          <button mat-icon-button aria-label="Settings page" disabled>
+            <mat-icon>settings</mat-icon>
+          </button>
+
+          <button *ngIf="auth.hasRole('ADMIN')" mat-icon-button aria-label="Admin Dashboard" routerLink="/admin">
+            <mat-icon>admin_panel_settings</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="User logout" (click)="auth.logout()">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
+
+        <div *ngIf="!auth.isLoggedIn">
+          <button mat-icon-button aria-label="User login page" routerLink="/login">
+            <mat-icon>key</mat-icon>
+          </button>
+        </div>
+
+        -->
+
+      </mat-toolbar>
+
+      <!-- Routing Outlet -->
+      <router-outlet></router-outlet>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
