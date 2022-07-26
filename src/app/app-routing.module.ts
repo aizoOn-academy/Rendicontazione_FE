@@ -13,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: 'bando', component: BandoTableComponent },
       { path: 'domanda', component: DomandaTableComponent },
+      { path: 'domanda/:id', component: DomandaTableComponent },
       { path: '**', redirectTo: 'bando' },
     ],
   },

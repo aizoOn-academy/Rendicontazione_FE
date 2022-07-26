@@ -1,0 +1,140 @@
+{
+  "bandi": [
+    {
+      "idBando": 1,
+      "title": "Bando delle pannocchie",
+      "code": 123456,
+      "description": "Bando annuale della regione Piemonte sulla vendita delle pannocchie",
+      "startDate": "23/07/2021",
+      "endDate": "31/12/2023"
+    },
+    {
+      "idBando": 2,
+      "title": "Bando dei maiali",
+      "code": 54321,
+      "description": "Bando che assegna il numero di maiali distribuiti",
+      "startDate": "01/01/2022",
+      "endDate": "31/12/2022"
+    },
+    {
+      "idBando": 3,
+      "title": "Bando delle cattedre",
+      "code": 11111,
+      "description": "Bando per l'assegnazione delle cattedre delle scuole secondarie in Lombardia",
+      "startDate": "10/06/2022",
+      "endDate": "15/09/2022"
+    },
+    {
+      "idBando": 4,
+      "title": "Bando spazzatura",
+      "code": 69699,
+      "description": "Bando per l'assegnazione della raccolta della spazzatura in Lombardia",
+      "startDate": "01/03/2022",
+      "endDate": "01/03/2022"
+    },
+    {
+      "idBando": 5,
+      "title": "Bando delle piante",
+      "code": 33333,
+      "description": "Bando per l'assegnazione della potatura delle piante in Piemonte",
+      "startDate": "10/06/2022",
+      "endDate": "10/11/2022"
+    },
+    {
+      "idBando": 6,
+      "title": "Bando delle rane",
+      "code": 55555,
+      "description": "Bando per l'assegnazione della conta delle rane nel fiume Dora",
+      "startDate": "01/03/2022",
+      "endDate": "15/10/2022"
+    },
+    {
+      "idBando": 7,
+      "title": "Bando dei bandi",
+      "code": 23423,
+      "description": "Bando per l'assegnazione dei bandi",
+      "startDate": "01/01/2022",
+      "endDate": "31/12/2025"
+    }
+  ],
+  "domande": [
+    {
+      "requestId": 1,
+      "operatorId": 1,
+      "announcmentId": 1,
+      "applicantFiscalCode": "BBTLNZ98D16I577E",
+      "applicantName": "Pippo",
+      "applicantSurname": "Paperino",
+      "applicantAddress": "viale lungo",
+      "applicantCityCap": "12345",
+      "applicantCity": "Milano",
+      "applicantNation": "Italia",
+      "applicantPhone": "2462893373",
+      "moneyAmount": 8000,
+      "applicantIban": "IT60X0542811101000000123456",
+      "note": "Guarda che bella domanda che è questa! Quasi quasi la accetto subito!",
+      "approvationStatus": false
+    },
+    {
+      "requestId": 2,
+      "operatorId": 2,
+      "announcmentId": 1,
+      "applicantFiscalCode": "BBTLNZ98D16I577E",
+      "applicantName": "Ciccio",
+      "applicantSurname": "Pasticcio",
+      "applicantAddress": "viale corto",
+      "applicantCityCap": "12345",
+      "applicantCity": "Roma",
+      "applicantNation": "Italia",
+      "applicantPhone": "2462893373",
+      "moneyAmount": 14000,
+      "applicantIban": "IT60X0542811101000000123456",
+      "note": "Ciao ciao ciao ciaone",
+      "approvationStatus": false
+    },
+    {
+      "requestId": 2,
+      "operatorId": 1,
+      "announcmentId": 2,
+      "applicantFiscalCode": "BBTLNZ98D16I577E",
+      "applicantName": "Luca",
+      "applicantSurname": "Neri",
+      "applicantAddress": "viale Medio",
+      "applicantCityCap": "12345",
+      "applicantCity": "Caserta",
+      "applicantNation": "Italia",
+      "applicantPhone": "2462893373",
+      "moneyAmount": 3000,
+      "applicantIban": "IT60X0542811101000000123456",
+      "note": "Rifiutategli la richiesta che non se la merita",
+      "approvationStatus": true
+    },
+    {
+      "requestId": 4,
+      "operatorId": 1,
+      "announcmentId": 3,
+      "applicantFiscalCode": "BBTLNZ98D16I577E",
+      "applicantName": "Bianca",
+      "applicantSurname": "Neri",
+      "applicantAddress": "viale rotto",
+      "applicantCityCap": "12345",
+      "applicantCity": "Torino",
+      "applicantNation": "Italia",
+      "applicantPhone": "2462893373",
+      "moneyAmount": 200000,
+      "applicantIban": "IT60X0542811101000000123456",
+      "note": "Questa vuole troppi soldi",
+      "approvationStatus": false
+    }
+  ],
+  "operatore": [
+    {
+      "operatoreId": 1,
+      "username": "MarioMarietto"
+    },
+    {
+      "operatoreId": 2,
+      "username": "LucaLuchino"
+    }
+  ]
+}
