@@ -14,6 +14,7 @@ export interface dtoDomanda {
   applicantIban: string;
 
   moneyAmount: number;
+  approvedMoneyAmount: number;
 
   note: string;
   approvationStatus: boolean;

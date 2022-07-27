@@ -55,9 +55,10 @@
       </mat-card-content>
       <mat-divider inset></mat-divider>
       <mat-card-actions>
-        <button type="submit" class="button" mat-flat-button color="primary"
-          (click)="statoDomanda(true)">Approva</button>
-        <button type="submit" class="button" mat-flat-button color="warn" (click)="statoDomanda(false)">Rifiuta</button>
+        <button type="submit" class="button" mat-flat-button color="primary" (click)="statoDomanda(true)"
+          [mat-dialog-close]="data">Approva</button>
+        <button type="submit" class="button" mat-flat-button color="warn" (click)="statoDomanda(false)"
+          [mat-dialog-close]="data">Rifiuta</button>
       </mat-card-actions>
 
     </mat-card>

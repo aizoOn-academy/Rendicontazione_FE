@@ -14,12 +14,14 @@ export class DomandaTableComponent implements OnInit {
 
   listaDomande: dtoDomanda[] = [];
   dataSource: dtoDomanda[] = [];
+  gruppoSelezionato: string = "Ancora da approvare";
 
   displayedColumns: string[] = [
     'codiceFiscale',
     'nome',
     'cognome',
     'somma',
+    'sommaConcessa',
     'actions',
   ];
 
@@ -53,6 +55,8 @@ export class DomandaTableComponent implements OnInit {
     } else {
       this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
     }
+
+    this.gruppoSelezionato = event.tab.textLabel;
   }
 
 }
