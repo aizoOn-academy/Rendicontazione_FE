@@ -1,7 +1,10 @@
+import { dtoBando } from "./dto-bando";
+import { dtoOperator } from "./dto-operatore";
+
 export interface dtoDomanda {
-  requestId?: number;
-  operatorId: number;
-  announcmentId: number;
+  announcementApplicationId?: number;
+  operator: dtoOperator;
+  announcement: dtoBando;
 
   applicantFiscalCode: string;
   applicantName: string;

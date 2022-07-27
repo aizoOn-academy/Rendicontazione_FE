@@ -1,7 +1,7 @@
 export interface dtoBando {
-  bandoId?: number;
+  announcementId?: number;
   title: string;
-  code: number;
+  code: string;
   description: string;
   startDate: Date;
   endDate: Date;

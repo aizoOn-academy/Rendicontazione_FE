@@ -1,8 +1,8 @@
 <div class="container">
   <form (ngSubmit)="sommaFinale(form)" #form="ngForm">
     <mat-card>
-      <mat-card-title>Domanda per il bando numero {{data.announcmentId}}</mat-card-title>
-      <mat-card-subtitle>Domanda numero: {{data.requestId}}</mat-card-subtitle>
+      <mat-card-title>Domanda per il bando {{data.announcement.title}}</mat-card-title>
+      <mat-card-subtitle>Domanda numero: {{data.announcementApplicationId}}</mat-card-subtitle>
       <mat-divider inset></mat-divider>
 
       <mat-card-content>

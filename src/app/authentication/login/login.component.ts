@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class LoginComponent {
   hidePassword = true;
 
   constructor(
-    public auth:AuthService
+    public auth:AuthService,
+    public router:Router
   ) {}
 
   onSubmit() {
@@ -31,7 +33,7 @@ export class LoginComponent {
       
       this.auth.login(<string>this.username?.value, <string>this.password?.value, 
         () => {
-          console.log("success!");
+          this.router.navigateByUrl("/home");
         },
 
         (error) => {
