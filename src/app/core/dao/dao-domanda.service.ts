@@ -13,4 +13,8 @@ export class DaoDomandaService {
   findAllDomande(): Observable<dtoDomanda[]> {
     return this.http.get<dtoDomanda[]>('http://localhost:3000/domande');
   }
+
+  findDomandeById(idBando: number): Observable<dtoDomanda[]> {
+    return this.http.get<dtoDomanda[]>('http://localhost:3000/domande/' + idBando);
+  }
 }

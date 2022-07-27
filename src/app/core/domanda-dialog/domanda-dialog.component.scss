@@ -1,0 +1,41 @@
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.container_dati {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+p {
+  font-style: italic;
+}
+
+mat-card-content {
+  padding-top: 2vh;
+}
+
+.error_message {
+  color: red
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  min-width: 300px;
+  margin: 10px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+mat-card-title {
+  font-weight: bold;
+}

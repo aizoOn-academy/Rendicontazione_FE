@@ -1,0 +1,65 @@
+<div class="container">
+  <form (ngSubmit)="sommaFinale(form)" #form="ngForm">
+    <mat-card>
+      <mat-card-title>Domanda per il bando numero {{data.announcmentId}}</mat-card-title>
+      <mat-card-subtitle>Domanda numero: {{data.requestId}}</mat-card-subtitle>
+      <mat-divider inset></mat-divider>
+
+      <mat-card-content>
+        <h3>Dati del richiedente:</h3>
+        <div class="container_dati">
+          <p>NOME:</p>
+          <div>{{data.applicantName | uppercase}}</div>
+          <p>COGNOME:</p>
+          <div>{{data.applicantSurname | uppercase}}</div>
+          <p>CODICE FISCALE:</p>
+          <div>{{data.applicantFiscalCode | uppercase}}</div>
+          <p>INDIRIZZO DI RESIDENZA:</p>
+          <div>{{data.applicantAddress | uppercase}}</div>
+          <p>CITTÁ DI RESIDENZA:</p>
+          <div>{{data.applicantCity | uppercase}} ({{data.applicantCityCap}})</div>
+          <p>NAZIONE:</p>
+          <div>{{data.applicantNation | uppercase}}</div>
+          <p>NUMERO DI TELEFONO:</p>
+          <div>{{data.applicantPhone | uppercase}}</div>
+          <p>IBAN:</p>
+          <div>{{data.applicantIban | uppercase}}</div>
+          <p></p>
+          <div></div>
+          <p>NOTE:</p>
+          <div>{{data.note}}</div>
+        </div>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-content>
+
+        <div class="container_dati">
+          <p>SOMMA RICHIESTA:</p>
+          <div>{{data.moneyAmount}} €</div>
+          <p>SOMMA CONCESSA:</p>
+          <div>
+            <input type="number" name="sommaFinaleErogata" #sommaFinaleErogata="ngModel" [ngModel]="data.moneyAmount"
+              required ngModel> €
+            <div class="error_message" *ngIf="sommaFinaleErogata.value < 0">
+              Non è possibile inserire un valore negativo
+            </div>
+            <div class="error_message" *ngIf="sommaFinaleErogata.value > data.moneyAmount">
+              Non è possibile concedere una cifra maggiore di quella richiesta
+            </div>
+            <div class="error_message" *ngIf="sommaFinaleErogata.errors?.['required']">
+              É necessario specificare la somma da erogare
+            </div>
+          </div>
+        </div>
+
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions>
+        <button type="submit" class="button" mat-flat-button color="primary"
+          (click)="statoDomanda(true)">Approva</button>
+        <button type="submit" class="button" mat-flat-button color="warn" (click)="statoDomanda(false)">Rifiuta</button>
+      </mat-card-actions>
+
+    </mat-card>
+  </form>
+</div>

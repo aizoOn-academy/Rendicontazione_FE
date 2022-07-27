@@ -1,5 +1,12 @@
 <div class="container">
-  <table mat-table [dataSource]="listaDomande" matSort>
+
+  <mat-tab-group #tabGroup mat-align-tabs="start" (selectedTabChange)="selectedTab($event)">
+    <mat-tab label="Ancora da approvare"></mat-tab>
+    <mat-tab label="Approvate"></mat-tab>
+    <mat-tab label="Non approvate"></mat-tab>
+  </mat-tab-group>
+
+  <table mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="codiceFiscale">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Codice fiscale</th>
@@ -33,5 +40,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
   </table>
+
+  <div *ngIf="dataSource.length == 0">
+    <h4>Non sono presenti elementi nel DB</h4>
+  </div>
 
 </div>

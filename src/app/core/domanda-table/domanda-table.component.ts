@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 import { DaoDomandaService } from '../dao/dao-domanda.service';
+import { DomandaDialogComponent } from '../domanda-dialog/domanda-dialog.component';
 import { dtoDomanda } from '../dto/dto-domanda';
 
 @Component({
@@ -9,13 +12,8 @@ import { dtoDomanda } from '../dto/dto-domanda';
 })
 export class DomandaTableComponent implements OnInit {
 
-  listaDomande: dtoDomanda[] = []
-
-  constructor(private daoDomanda: DaoDomandaService) { }
-
-  ngOnInit(): void {
-    this.daoDomanda.findAllDomande().subscribe(data => this.listaDomande = data);
-  }
+  listaDomande: dtoDomanda[] = [];
+  dataSource: dtoDomanda[] = [];
 
   displayedColumns: string[] = [
     'codiceFiscale',
@@ -25,8 +23,36 @@ export class DomandaTableComponent implements OnInit {
     'actions',
   ];
 
-  openDomanda(domanda: dtoDomanda) {
+  constructor(private daoDomanda: DaoDomandaService, private dialog: MatDialog) { }
 
+  ngOnInit(): void {
+    this.daoDomanda.findAllDomande().subscribe(data => {
+      this.listaDomande = data;
+      this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+    });
+  }
+
+
+
+  openDomanda(domanda: dtoDomanda) {
+    const dialogRef = this.dialog.open(DomandaDialogComponent, {
+      data: domanda
+    });
+
+    dialogRef
+      .afterClosed()
+      .subscribe(() => {});
+
+  }
+
+  selectedTab(event: MatTabChangeEvent) {
+    if(event.tab.textLabel == "Non approvate") {
+      this.dataSource = this.listaDomande.filter(data => data.approvationStatus == false);
+    } else if (event.tab.textLabel == "Approvate"){
+      this.dataSource = this.listaDomande.filter(data => data.approvationStatus == true);
+    } else {
+      this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+    }
   }
 
 }

@@ -13,6 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTabsModule} from '@angular/material/tabs';
+import { DomandaDialogComponent } from './domanda-dialog/domanda-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     BandoTableComponent,
     DomandaTableComponent,
+    DomandaDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +36,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCardModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule,
+    MatDialogModule,
+    FormsModule
   ],
 })
 export class CoreModule {}

@@ -73,7 +73,7 @@
       "moneyAmount": 8000,
       "applicantIban": "IT60X0542811101000000123456",
       "note": "Guarda che bella domanda che è questa! Quasi quasi la accetto subito!",
-      "approvationStatus": false
+      "approvationStatus": null
     },
     {
       "requestId": 2,
@@ -90,7 +90,7 @@
       "moneyAmount": 14000,
       "applicantIban": "IT60X0542811101000000123456",
       "note": "Ciao ciao ciao ciaone",
-      "approvationStatus": false
+      "approvationStatus": null
     },
     {
       "requestId": 2,
@@ -107,7 +107,7 @@
       "moneyAmount": 3000,
       "applicantIban": "IT60X0542811101000000123456",
       "note": "Rifiutategli la richiesta che non se la merita",
-      "approvationStatus": true
+      "approvationStatus": null
     },
     {
       "requestId": 4,
@@ -124,7 +124,7 @@
       "moneyAmount": 200000,
       "applicantIban": "IT60X0542811101000000123456",
       "note": "Questa vuole troppi soldi",
-      "approvationStatus": false
+      "approvationStatus": null
     }
   ],
   "operatore": [
