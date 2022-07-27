@@ -20,4 +20,11 @@ export class DaoDomandaService {
   findDomandeById(idBando: number): Observable<dtoDomanda[]> {
     return this.http.get<dtoDomanda[]>(API_URL + idBando);
   }
+
+  patchDomanda(domanda: dtoDomanda): Observable<dtoDomanda> {
+    return this.http.patch<dtoDomanda>(API_URL + domanda.announcementApplicationId, {
+      approvationStatus: domanda.approvationStatus,
+      approvedMoneyAmount: domanda.approvedMoneyAmount
+    })
+  }
 }

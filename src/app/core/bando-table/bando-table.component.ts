@@ -11,6 +11,7 @@ import { dtoBando } from '../dto/dto-bando';
 })
 export class BandoTableComponent implements OnInit {
 
+
   listaBandi: dtoBando[] = [];
 
   constructor(private router: Router, private daoBando: DaoBandoService) { }
@@ -20,7 +21,7 @@ export class BandoTableComponent implements OnInit {
   }
 
   openDomande(bando: dtoBando) {
-    this.router.navigateByUrl('home/domanda');
+    this.router.navigate(['home/domanda'], {queryParams: {idBando: bando.announcementId}});
   }
 
 }

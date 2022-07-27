@@ -11,16 +11,13 @@ import { dtoDomanda } from '../dto/dto-domanda';
 })
 export class DomandaDialogComponent implements OnInit {
 
-  sommaFinaleTemp: number = 0;
   closeDialog = false;
 
   constructor(
     private daoDomanda: DaoDomandaService,
     public dialogRef: MatDialogRef<DomandaDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: dtoDomanda
-  ) {
-    this.sommaFinaleTemp = data.moneyAmount;
-  }
+  ) { }
 
   ngOnInit(): void {
   }
@@ -28,10 +25,10 @@ export class DomandaDialogComponent implements OnInit {
   sommaFinale(form: NgForm) {
     if(form.valid) {
 
-      this.data.moneyAmount = form.value.sommaFinaleErogata;
+      this.data.approvedMoneyAmount = form.value.sommaFinaleErogata;
 
       //chiamata al BE
-      //daoService
+      this.daoDomanda.patchDomanda(this.data).subscribe(response => console.log(response));
 
       this.closeDialog = true;
     }

@@ -41,10 +41,9 @@ export class DomandaTableComponent implements OnInit {
       data: domanda
     });
 
-    dialogRef
-      .afterClosed()
-      .subscribe(() => {});
-
+    dialogRef.afterClosed().subscribe(() => {
+      this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null)
+    });
   }
 
   selectedTab(event: MatTabChangeEvent) {
