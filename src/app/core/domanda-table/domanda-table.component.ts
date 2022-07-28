@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { ActivatedRoute } from '@angular/router';
 import { DaoDomandaService } from '../dao/dao-domanda.service';
 import { DomandaDialogComponent } from '../domanda-dialog/domanda-dialog.component';
 import { dtoDomanda } from '../dto/dto-domanda';
@@ -25,12 +26,28 @@ export class DomandaTableComponent implements OnInit {
     'actions',
   ];
 
-  constructor(private daoDomanda: DaoDomandaService, private dialog: MatDialog) { }
+  constructor(private daoDomanda: DaoDomandaService, private dialog: MatDialog, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.daoDomanda.findAllDomande().subscribe(data => {
-      this.listaDomande = data;
-      this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+    let id: number;
+    this.route.queryParams.subscribe(params => {
+
+      id = Number(params['idBando']);
+
+      //se voglio vedere tutte le domande
+      if(!id) {
+        this.daoDomanda.findAllDomande().subscribe(data => {
+          this.listaDomande = data;
+          this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+        });
+      } else {
+
+        //se voglio vedere le domande di un bando
+        this.daoDomanda.findDomandeById(id).subscribe(data => {
+        this.listaDomande = data;
+        this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+      })
+      }
     });
   }
 

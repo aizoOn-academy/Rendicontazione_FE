@@ -1,6 +1,7 @@
 <h1>Sign in to your account</h1>
 <mat-card>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+
     <mat-form-field appearance="outline">
       <mat-label>Enter your username</mat-label>
       <input formControlName="username" type="text" matInput>
@@ -21,7 +22,8 @@
     </mat-form-field>
 
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Sign in</button>
+      <button mat-raised-button color="primary" type="submit" autofocus>Sign in</button>
     </mat-card-actions>
+
   </form>
 </mat-card>

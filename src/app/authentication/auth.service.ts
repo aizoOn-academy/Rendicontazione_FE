@@ -39,12 +39,12 @@ export class AuthService {
   }
 
   logout() {
-    
+
     return this.http.post<any>(environment.apiURL + "/logout", {"reserved": "futureProof!"}).subscribe(
       (next) => {
         window.sessionStorage.removeItem(USER_TOKEN);
         this.user = undefined;
-        
+
         this.router.navigateByUrl('/login');
       }
     );

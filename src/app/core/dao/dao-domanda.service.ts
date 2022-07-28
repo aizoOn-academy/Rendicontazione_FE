@@ -18,7 +18,7 @@ export class DaoDomandaService {
   }
 
   findDomandeById(idBando: number): Observable<dtoDomanda[]> {
-    return this.http.get<dtoDomanda[]>(API_URL + idBando);
+    return this.http.get<dtoDomanda[]>(API_URL + "?announcement_id=" + idBando);
   }
 
   patchDomanda(domanda: dtoDomanda): Observable<dtoDomanda> {

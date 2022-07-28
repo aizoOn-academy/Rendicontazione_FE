@@ -15,37 +15,14 @@
         <span *ngIf="router.url === '/home/bando'">
           BANDI
         </span>
-        <span *ngIf="router.url === '/home/domanda'">
-          DOMANDE ATTIVE
+        <span *ngIf="router.url != '/home/bando'">
+          DOMANDE
         </span>
 
-        <!-- <div *ngIf="!auth.isLoggedIn"> -->
-        <button mat-raised-button color="basic" routerLink="/login">
-          LOGIN
+        <button mat-raised-button color="basic" (click)="logout()">
+          LOGOUT
           <mat-icon matSuffix style="margin-left: 0.5vw">person</mat-icon>
         </button>
-
-        <!--
-        <div *ngIf="auth.isLoggedIn">
-          <button mat-icon-button aria-label="Settings page" disabled>
-            <mat-icon>settings</mat-icon>
-          </button>
-
-          <button *ngIf="auth.hasRole('ADMIN')" mat-icon-button aria-label="Admin Dashboard" routerLink="/admin">
-            <mat-icon>admin_panel_settings</mat-icon>
-          </button>
-          <button mat-icon-button aria-label="User logout" (click)="auth.logout()">
-            <mat-icon>logout</mat-icon>
-          </button>
-        </div>
-
-        <div *ngIf="!auth.isLoggedIn">
-          <button mat-icon-button aria-label="User login page" routerLink="/login">
-            <mat-icon>key</mat-icon>
-          </button>
-        </div>
-
-        -->
 
       </mat-toolbar>
 

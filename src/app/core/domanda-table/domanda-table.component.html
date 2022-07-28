@@ -1,5 +1,8 @@
 <div class="container">
 
+  <button mat-raised-button color="primary" routerLink="/home/domanda" class="button_all_domande">Visualizza tutte le
+    domande</button>
+
   <mat-tab-group #tabGroup mat-align-tabs="start" (selectedTabChange)="selectedTab($event)">
     <mat-tab label="Ancora da approvare"></mat-tab>
     <mat-tab label="Approvate"></mat-tab>
