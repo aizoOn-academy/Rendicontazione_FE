@@ -62,6 +62,11 @@ export class DomandaTableComponent implements OnInit {
 
   }
 
+  downloadPDF() {
+    //aggiungi la tua chiamata al BE
+    //this.daoDomanda
+  }
+
   openDomanda(domanda: dtoDomanda) {
     const dialogRef = this.dialog.open(DomandaDialogComponent, {
       data: domanda

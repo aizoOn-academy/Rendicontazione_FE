@@ -51,6 +51,13 @@
             Apri domanda
           </button>
         </div>
+
+        <div *ngIf="gruppoSelezionato != 'Ancora da approvare'">
+          <button mat-raised-button color="primary" (click)="downloadPDF()">
+            Scarica pdf
+            <mat-icon style="margin-left: 0.8vw" matSuffix>save_alt</mat-icon>
+          </button>
+        </div>
       </td>
     </ng-container>
 
