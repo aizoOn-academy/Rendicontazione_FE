@@ -12,8 +12,9 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Enter your password</mat-label>
-      <input formControlName="password" type="password" maxlength="250" matInput>
-      <mat-icon matSuffix>lock</mat-icon>
+      <input formControlName="password" [type]="!passwordVisibile ? 'password' : 'text'" maxlength="250" matInput>
+      <mat-icon (click)="pwVisibile()" matSuffix>lock</mat-icon>
+
       <mat-error *ngIf="password?.errors?.['required']">Password is required</mat-error>
       <mat-error *ngIf="password?.errors?.['maxlength']">Password must be less then 20 chars</mat-error>
     </mat-form-field>

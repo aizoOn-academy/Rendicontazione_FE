@@ -10,18 +10,24 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  passwordVisibile = false;
+  pwVisibile() {
+    if (this.passwordVisibile)
+      this.passwordVisibile = false;
+    else
+      this.passwordVisibile = true;
+  }
+
   loginForm = new FormGroup({
     username: new FormControl('', [
       Validators.required,
-      Validators.maxLength(100),
+      Validators.maxLength(20),
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.maxLength(100),
+      Validators.maxLength(20),
     ]),
   });
-
-  hidePassword = true;
 
   constructor(
     public auth:AuthService,
