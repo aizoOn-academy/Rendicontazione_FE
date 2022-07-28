@@ -1,7 +1,11 @@
 <div class="container">
 
-  <button mat-raised-button color="primary" routerLink="/home/domanda" class="button_all_domande">Visualizza tutte le
-    domande</button>
+  <div *ngIf="router.url != '/home/domanda'">
+    <button mat-raised-button color="primary" class="button_all_domande" (click)="mostraTutteDomande()">
+      Visualizza tutte le domande
+    </button>
+  </div>
+
 
   <mat-tab-group #tabGroup mat-align-tabs="start" (selectedTabChange)="selectedTab($event)">
     <mat-tab label="Ancora da approvare"></mat-tab>
@@ -33,7 +37,10 @@
 
     <ng-container matColumnDef="sommaConcessa">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Somma concessa (€)</th>
-      <td mat-cell *matCellDef="let domanda">{{ domanda.approvedMoneyAmount || 'ancora da stabilire'}} </td>
+      <td mat-cell *matCellDef="let domanda">
+        {{ domanda.approvationStatus ? domanda.approvedMoneyAmount :
+        domanda.approvationStatus==false ? 'non erogato' : 'ancora da stabilire' }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="actions" stickyEnd>

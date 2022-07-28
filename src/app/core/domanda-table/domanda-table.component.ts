@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DaoDomandaService } from '../dao/dao-domanda.service';
 import { DomandaDialogComponent } from '../domanda-dialog/domanda-dialog.component';
 import { dtoDomanda } from '../dto/dto-domanda';
@@ -26,7 +26,7 @@ export class DomandaTableComponent implements OnInit {
     'actions',
   ];
 
-  constructor(private daoDomanda: DaoDomandaService, private dialog: MatDialog, private route: ActivatedRoute) { }
+  constructor(private daoDomanda: DaoDomandaService, private dialog: MatDialog, private route: ActivatedRoute, public router: Router) { }
 
   ngOnInit(): void {
     let id: number;
@@ -36,22 +36,31 @@ export class DomandaTableComponent implements OnInit {
 
       //se voglio vedere tutte le domande
       if(!id) {
+
         this.daoDomanda.findAllDomande().subscribe(data => {
           this.listaDomande = data;
-          this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+          this.selectedTab(this.gruppoSelezionato);
+          //this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
         });
+
       } else {
 
         //se voglio vedere le domande di un bando
         this.daoDomanda.findDomandeById(id).subscribe(data => {
-        this.listaDomande = data;
-        this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
-      })
+          this.listaDomande = data;
+          //this.selectedTab(this.gruppoSelezionato);
+          this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+        })
       }
     });
   }
 
+  mostraTutteDomande() {
 
+    this.router.navigate(['home/domanda'], {queryParams: {idBando: null}});
+    //this.selectedTab(this.gruppoSelezionato);
+
+  }
 
   openDomanda(domanda: dtoDomanda) {
     const dialogRef = this.dialog.open(DomandaDialogComponent, {
@@ -63,16 +72,20 @@ export class DomandaTableComponent implements OnInit {
     });
   }
 
-  selectedTab(event: MatTabChangeEvent) {
-    if(event.tab.textLabel == "Non approvate") {
+  selectedTab(event: MatTabChangeEvent | string) {
+
+    let tmp = typeof event === 'string' ? (event as string) : (event as MatTabChangeEvent).tab.textLabel
+
+    if(tmp == "Non approvate") {
       this.dataSource = this.listaDomande.filter(data => data.approvationStatus == false);
-    } else if (event.tab.textLabel == "Approvate"){
+    } else if (tmp == "Approvate"){
       this.dataSource = this.listaDomande.filter(data => data.approvationStatus == true);
     } else {
       this.dataSource = this.listaDomande.filter(data => data.approvationStatus == null);
+      tmp = "Ancora da approvare";
     }
 
-    this.gruppoSelezionato = event.tab.textLabel;
+    this.gruppoSelezionato = tmp;
   }
 
 }

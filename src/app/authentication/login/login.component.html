@@ -4,21 +4,18 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Enter your username</mat-label>
-      <input formControlName="username" type="text" matInput>
+      <input formControlName="username" type="text" maxlength="20" matInput>
       <mat-icon matSuffix>person</mat-icon>
       <mat-error *ngIf="username?.errors?.['required']">Username is required</mat-error>
-      <mat-error *ngIf="username?.errors?.['maxlength']">Username must be less then 100 chars</mat-error>
+      <mat-error *ngIf="username?.errors?.['maxlength']">Username must be less then 20 chars</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Enter your password</mat-label>
-      <input formControlName="password" matInput [type]="hidePassword ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hidePassword">
-        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-      <mat-error *ngIf="password?.errors?.['required']">Username is required</mat-error>
-      <mat-error *ngIf="password?.errors?.['maxlength']">Username must be less then 100 chars</mat-error>
+      <input formControlName="password" type="password" maxlength="250" matInput>
+      <mat-icon matSuffix>lock</mat-icon>
+      <mat-error *ngIf="password?.errors?.['required']">Password is required</mat-error>
+      <mat-error *ngIf="password?.errors?.['maxlength']">Password must be less then 20 chars</mat-error>
     </mat-form-field>
 
     <mat-card-actions>

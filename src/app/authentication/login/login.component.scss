@@ -9,10 +9,11 @@ mat-card {
   width: 25%;
   height: 40%;
   margin: auto;
-  background-color:#F5F5F5;
+  background-color: #F5F5F5;
 }
 
-mat-card-actions, mat-form-field {
+mat-card-actions,
+mat-form-field {
   display: flex;
   justify-content: center;
   margin-top: 4%;
@@ -21,4 +22,8 @@ mat-card-actions, mat-form-field {
 button {
   width: 50%;
   height: 6vh;
+}
+
+input {
+  background-color: #F5F5F5;
 }
