@@ -2,7 +2,7 @@
   <mat-drawer-container class="acs-content">
     <!-- Sidenav -->
     <mat-drawer #sidenav mode="side" opened="false" class="acs-sidenav">
-      <app-sidebar></app-sidebar>
+      <app-sidebar [sidenav]="sidenav"></app-sidebar>
     </mat-drawer>
 
     <mat-drawer-content>
